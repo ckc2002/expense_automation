@@ -16,13 +16,13 @@ pipeline {
 
         stage('Clean & Build') {
             steps {
-                sh 'mvn clean'
+                bat 'mvn clean'
             }
         }
 
         stage('Run API Tests') {
             steps {
-                sh 'mvn test -DsuiteXmlFile=test-suites/default.xml'
+                bat 'mvn test -DsuiteXmlFile=test-suites/default.xml'
             }
         }
 
