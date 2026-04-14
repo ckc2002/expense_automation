@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,6 +104,11 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_Suite" title="api.auth.AuthApiTest" class="method navigator-link" hash-for-method="verifyInvalidLoginDoesNotReturnToken">verifyInvalidLoginDoesNotReturnToken</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_Suite" title="tests.smoke.LoginTest" class="method navigator-link" hash-for-method="verifyLogin(chaitanya@gmail.com, As123@123, Chaitanya Chandra)">verifyLogin(chaitanya@gmail.com, As123@123, Chaitanya Chandra)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -135,7 +140,7 @@
                   </a> <!-- verifyInvalidLoginDoesNotReturnToken -->
                   <span class="method-name">verifyInvalidLoginDoesNotReturnToken</span>
                   <em>
-(Verify login API returns token for valid credentials)                  </em>
+(Verify Inavlid login API)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -145,6 +150,22 @@
                   <span class="method-name">verifyLoginApiReturnsToken</span>
                   <em>
 (Verify login API returns token for valid credentials)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_Suite-class-passed -->
+          <div class="suite-Default_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">tests.smoke.LoginTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyLogin(chaitanya@gmail.com, As123@123, Chaitanya Chandra)">
+                  </a> <!-- verifyLogin(chaitanya@gmail.com, As123@123, Chaitanya Chandra) -->
+                  <span class="method-name">verifyLogin</span>
+                  <span class="parameters">(chaitanya@gmail.com,As123@123,Chaitanya Chandra)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -170,9 +191,11 @@
       &lt;/run&gt;
     &lt;/groups&gt;
     &lt;packages&gt;
+      &lt;package name=&quot;tests.smoke&quot;/&gt;
       &lt;package name=&quot;api.auth&quot;/&gt;
     &lt;/packages&gt;
     &lt;classes&gt;
+      &lt;class name=&quot;tests.smoke.LoginTest&quot;/&gt;
       &lt;class name=&quot;api.auth.AuthApiTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Smoke Tests --&gt;
@@ -187,7 +210,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Smoke Tests (1 class)</span>
+                <span class="test-name">Smoke Tests (2 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -202,6 +225,10 @@
               <br/>
               <div class="method-in-group">
                 <span class="method-in-group-name">verifyInvalidLoginDoesNotReturnToken</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">verifyLogin</span>
                 <br/>
               </div> <!-- method-in-group -->
               <div class="method-in-group">
@@ -225,20 +252,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'verifyInvalidLoginDoesNotReturnToken')
 data.setCell(0, 2, 'api.auth.AuthApiTest')
-data.setCell(0, 3, 5401);
+data.setCell(0, 3, 7295);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'verifyLoginApiReturnsToken')
-data.setCell(1, 2, 'api.auth.AuthApiTest')
-data.setCell(1, 3, 4937);
+data.setCell(1, 1, 'verifyLogin')
+data.setCell(1, 2, 'tests.smoke.LoginTest')
+data.setCell(1, 3, 6435);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'verifyLoginApiReturnsToken')
+data.setCell(2, 2, 'api.auth.AuthApiTest')
+data.setCell(2, 3, 6342);
 window.suiteTableData['Default_Suite']= { tableData: data, tableDiv: 'times-div-Default_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 10 seconds</span>
+              <span class="suite-total-time">Total running time: 20 seconds</span>
               <div id="times-div-Default_Suite">
               </div> <!-- times-div-Default_Suite -->
             </div> <!-- times-div -->
@@ -266,21 +297,42 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">api.auth.AuthApiTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
-                <span class="method-name">setUpApiDefaults(org.testng.TestRunner@62cbc478)</span>
+                <span class="method-name">setUpApiDefaults(org.testng.TestRunner@159ac15f)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
-                <span class="method-name">setUpApiDefaults(org.testng.TestRunner@62cbc478)</span>
+                <span class="method-name">setUpApiDefaults(org.testng.TestRunner@159ac15f)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">verifyInvalidLoginDoesNotReturnToken</span>
-                <span class="method-start">1746 ms</span>
-              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">tests.smoke.LoginTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp(org.testng.TestRunner@159ac15f)</span>
+                <span class="method-start">152 ms</span>
+              </div> <!-- configuration-method before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">api.auth.AuthApiTest</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">verifyLoginApiReturnsToken</span>
-                <span class="method-start">1748 ms</span>
+                <span class="method-start">2080 ms</span>
               </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyInvalidLoginDoesNotReturnToken</span>
+                <span class="method-start">2119 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">tests.smoke.LoginTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">verifyLogin(chaitanya@gmail.com, As123@123, Chaitanya Chandra)</span>
+                <span class="method-start">8474 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=verifyLogin status=SUCCESS method=LoginTest.verifyLogin(java.lang.String,java.lang....)</span>
+                <span class="method-start">14935 ms</span>
+              </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

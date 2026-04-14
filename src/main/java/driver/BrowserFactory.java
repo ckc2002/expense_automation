@@ -20,7 +20,11 @@ public class BrowserFactory {
 
 	public static WebDriver createDriver(String browserName) {
         String runMode = ConfigManager.getProperty("runMode", "local");
-        boolean headless = ConfigManager.getBooleanProperty("headless", false);
+     // Smart default
+        boolean headless = ConfigManager.getBooleanProperty(
+                "headless",
+                "remote".equalsIgnoreCase(runMode) // default true for remote
+        );
 
         if ("remote".equalsIgnoreCase(runMode)) {
             return createRemoteDriver(browserName, headless);
@@ -60,40 +64,35 @@ public class BrowserFactory {
     }
 	
 	private static WebDriver createRemoteDriver(String browserName, boolean headless) {
-        String remoteUrl = ConfigManager.getProperty("remoteUrl");
+		String remoteUrl = ConfigManager.getProperty("remoteUrl");
 
-        try {
-            switch (browserName.toLowerCase()) {
-                case "firefox":
-                    FirefoxOptions firefoxOptions = new FirefoxOptions();
-                    if (headless) {
-                        firefoxOptions.addArguments("-headless");
-                    }
-                    firefoxOptions.setPlatformName(Platform.LINUX.name());
-                    return new RemoteWebDriver(new URL(remoteUrl), firefoxOptions);
-
-                case "edge":
-                    EdgeOptions edgeOptions = new EdgeOptions();
-                    if (headless) {
-                        edgeOptions.addArguments("--headless=new");
-                    }
-                    edgeOptions.setPlatformName(Platform.LINUX.name());
-                    return new RemoteWebDriver(new URL(remoteUrl), edgeOptions);
-
-                case "chrome":
-                default:
-                    ChromeOptions chromeOptions = new ChromeOptions();
-                    if (headless) {
-                        chromeOptions.addArguments("--headless=new");
-                    }
-                    chromeOptions.addArguments("--no-sandbox");
-                    chromeOptions.addArguments("--disable-dev-shm-usage");
-                    chromeOptions.setPlatformName(Platform.LINUX.name());
-                    return new RemoteWebDriver(new URL(remoteUrl), chromeOptions);
-            }
-        } catch (MalformedURLException e) {
-            throw new RuntimeException("Invalid remote URL: " + remoteUrl, e);
-        }
-    }
+	    try {
+	        switch (browserName.toLowerCase()) {
 	
+	            case "firefox":
+	                FirefoxOptions firefoxOptions = new FirefoxOptions();
+	                if (headless) firefoxOptions.addArguments("-headless");
+	                return new RemoteWebDriver(new URL(remoteUrl), firefoxOptions);
+	
+	            case "edge":
+	                EdgeOptions edgeOptions = new EdgeOptions();
+	                if (headless) edgeOptions.addArguments("--headless=new");
+	                return new RemoteWebDriver(new URL(remoteUrl), edgeOptions);
+	
+	            case "chrome":
+	            default:
+	                ChromeOptions chromeOptions = new ChromeOptions();
+	                if (headless) chromeOptions.addArguments("--headless=new");
+	
+	                chromeOptions.addArguments("--no-sandbox");
+	                chromeOptions.addArguments("--disable-dev-shm-usage");
+	                chromeOptions.addArguments("--start-maximized");
+	
+	                return new RemoteWebDriver(new URL(remoteUrl), chromeOptions);
+	        }
+	
+	    } catch (MalformedURLException e) {
+	        throw new RuntimeException("Invalid remote URL: " + remoteUrl, e);
+	    }
+	}	
 }
