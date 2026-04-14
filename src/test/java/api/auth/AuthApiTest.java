@@ -27,7 +27,7 @@ public class AuthApiTest extends BaseAPITest {
         Assert.assertFalse(response.getBody().getToken().isBlank());
     }
     
-    @Test(description = "Verify login API returns token for valid credentials", groups={"smoke"})
+    @Test(description = "Verify Inavlid login API", groups={"smoke"})
     public void verifyInvalidLoginDoesNotReturnToken() {
     	APIResponse<LoginResponse> response = authService.login(
 				LoginRequestBuilder.invalidPasswordRequest()
