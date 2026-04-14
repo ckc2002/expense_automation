@@ -2,28 +2,28 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-14T23:03:44 IST" name="Default Suite" finished-at="2026-04-14T23:04:01 IST" duration-ms="16579">
+  <suite started-at="2026-04-14T23:16:48 IST" name="Default Suite" finished-at="2026-04-14T23:17:04 IST" duration-ms="15478">
     <groups>
       <group name="smoke">
-        <method signature="AuthApiTest.verifyInvalidLoginDoesNotReturnToken()[pri:0, instance:api.auth.AuthApiTest@7bd38fed]" name="verifyInvalidLoginDoesNotReturnToken" class="api.auth.AuthApiTest"/>
-        <method signature="AuthApiTest.verifyLoginApiReturnsToken()[pri:0, instance:api.auth.AuthApiTest@7bd38fed]" name="verifyLoginApiReturnsToken" class="api.auth.AuthApiTest"/>
-        <method signature="LoginTest.verifyLogin(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:tests.smoke.LoginTest@49232c6f]" name="verifyLogin" class="tests.smoke.LoginTest"/>
+        <method signature="AuthApiTest.verifyInvalidLoginDoesNotReturnToken()[pri:0, instance:api.auth.AuthApiTest@6aea99e7]" name="verifyInvalidLoginDoesNotReturnToken" class="api.auth.AuthApiTest"/>
+        <method signature="AuthApiTest.verifyLoginApiReturnsToken()[pri:0, instance:api.auth.AuthApiTest@6aea99e7]" name="verifyLoginApiReturnsToken" class="api.auth.AuthApiTest"/>
+        <method signature="LoginTest.verifyLogin(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:tests.smoke.LoginTest@4a31ed12]" name="verifyLogin" class="tests.smoke.LoginTest"/>
       </group> <!-- smoke -->
     </groups>
-    <test started-at="2026-04-14T23:03:44 IST" name="Smoke Tests" finished-at="2026-04-14T23:04:01 IST" duration-ms="16579">
+    <test started-at="2026-04-14T23:16:48 IST" name="Smoke Tests" finished-at="2026-04-14T23:17:04 IST" duration-ms="15478">
       <class name="tests.smoke.LoginTest">
-        <test-method is-config="true" signature="setUp(org.testng.ITestContext)[pri:0, instance:tests.smoke.LoginTest@49232c6f]" started-at="2026-04-14T23:03:45 IST" name="setUp" finished-at="2026-04-14T23:03:53 IST" duration-ms="8318" status="PASS">
+        <test-method is-config="true" signature="setUp(org.testng.ITestContext)[pri:0, instance:tests.smoke.LoginTest@4a31ed12]" started-at="2026-04-14T23:16:49 IST" name="setUp" finished-at="2026-04-14T23:16:56 IST" duration-ms="7625" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@159ac15f]]>
+                <![CDATA[org.testng.TestRunner@799f354a]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyLogin(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:tests.smoke.LoginTest@49232c6f]" started-at="2026-04-14T23:03:53 IST" name="verifyLogin" data-provider="loginUsers" finished-at="2026-04-14T23:03:59 IST" duration-ms="6435" status="PASS">
+        <test-method signature="verifyLogin(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:tests.smoke.LoginTest@4a31ed12]" started-at="2026-04-14T23:16:56 IST" name="verifyLogin" data-provider="loginUsers" finished-at="2026-04-14T23:17:03 IST" duration-ms="7096" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -44,11 +44,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLogin -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.smoke.LoginTest@49232c6f]" started-at="2026-04-14T23:03:59 IST" name="tearDown" finished-at="2026-04-14T23:04:01 IST" duration-ms="1512" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.smoke.LoginTest@4a31ed12]" started-at="2026-04-14T23:17:03 IST" name="tearDown" finished-at="2026-04-14T23:17:04 IST" duration-ms="504" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyLogin status=SUCCESS method=LoginTest.verifyLogin(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:tests.smoke.LoginTest@49232c6f] output={null}]]]>
+                <![CDATA[[TestResult name=verifyLogin status=SUCCESS method=LoginTest.verifyLogin(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:tests.smoke.LoginTest@4a31ed12] output={null}]]]>
               </value>
             </param>
           </params>
@@ -57,36 +57,36 @@
         </test-method> <!-- tearDown -->
       </class> <!-- tests.smoke.LoginTest -->
       <class name="api.auth.AuthApiTest">
-        <test-method is-config="true" signature="setUpApiDefaults(org.testng.ITestContext)[pri:0, instance:api.auth.AuthApiTest@7bd38fed]" started-at="2026-04-14T23:03:44 IST" name="setUpApiDefaults" finished-at="2026-04-14T23:03:46 IST" duration-ms="1856" status="PASS">
+        <test-method is-config="true" signature="setUpApiDefaults(org.testng.ITestContext)[pri:0, instance:api.auth.AuthApiTest@6aea99e7]" started-at="2026-04-14T23:16:49 IST" name="setUpApiDefaults" finished-at="2026-04-14T23:16:50 IST" duration-ms="1848" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@159ac15f]]>
+                <![CDATA[org.testng.TestRunner@799f354a]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpApiDefaults -->
-        <test-method is-config="true" signature="setUpApiDefaults(org.testng.ITestContext)[pri:0, instance:api.auth.AuthApiTest@7bd38fed]" started-at="2026-04-14T23:03:44 IST" name="setUpApiDefaults" finished-at="2026-04-14T23:03:46 IST" duration-ms="1856" status="PASS">
+        <test-method is-config="true" signature="setUpApiDefaults(org.testng.ITestContext)[pri:0, instance:api.auth.AuthApiTest@6aea99e7]" started-at="2026-04-14T23:16:49 IST" name="setUpApiDefaults" finished-at="2026-04-14T23:16:50 IST" duration-ms="1847" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@159ac15f]]>
+                <![CDATA[org.testng.TestRunner@799f354a]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpApiDefaults -->
-        <test-method signature="verifyLoginApiReturnsToken()[pri:0, instance:api.auth.AuthApiTest@7bd38fed]" started-at="2026-04-14T23:03:47 IST" name="verifyLoginApiReturnsToken" description="Verify login API returns token for valid credentials" finished-at="2026-04-14T23:03:53 IST" duration-ms="6342" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLoginApiReturnsToken -->
-        <test-method signature="verifyInvalidLoginDoesNotReturnToken()[pri:0, instance:api.auth.AuthApiTest@7bd38fed]" started-at="2026-04-14T23:03:47 IST" name="verifyInvalidLoginDoesNotReturnToken" description="Verify Inavlid login API" finished-at="2026-04-14T23:03:54 IST" duration-ms="7295" status="PASS">
+        <test-method signature="verifyInvalidLoginDoesNotReturnToken()[pri:0, instance:api.auth.AuthApiTest@6aea99e7]" started-at="2026-04-14T23:16:51 IST" name="verifyInvalidLoginDoesNotReturnToken" description="Verify Inavlid login API" finished-at="2026-04-14T23:16:59 IST" duration-ms="7921" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyInvalidLoginDoesNotReturnToken -->
+        <test-method signature="verifyLoginApiReturnsToken()[pri:0, instance:api.auth.AuthApiTest@6aea99e7]" started-at="2026-04-14T23:16:51 IST" name="verifyLoginApiReturnsToken" description="Verify login API returns token for valid credentials" finished-at="2026-04-14T23:16:57 IST" duration-ms="6327" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLoginApiReturnsToken -->
       </class> <!-- api.auth.AuthApiTest -->
     </test> <!-- Smoke Tests -->
   </suite> <!-- Default Suite -->

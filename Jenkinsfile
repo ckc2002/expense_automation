@@ -20,6 +20,16 @@ pipeline {
             }
         }
 
+        stage('Clean Old Reports') {
+            steps {
+                bat '''
+                    if exist allure-results rmdir /s /q allure-results
+                    if exist allure-report rmdir /s /q allure-report
+                    if exist target rmdir /s /q target
+                '''
+            }
+        }
+
         stage('Clean & Build') {
             steps {
                 bat 'mvn clean'
@@ -40,14 +50,19 @@ pipeline {
                     skipPublishingChecks: true,
                     skipMarkingBuildUnstable: true
                 )
+                echo "After JUnit: ${currentBuild.currentResult}"
             }
         }
 
         stage('Allure Report') {
             steps {
-                allure includeProperties: false,
-                       jdk: '',
-                       results: [[path: 'allure-results']]
+                allure(
+                    includeProperties: false,
+                    jdk: '',
+                    results: [[path: 'allure-results']],
+                    resultPolicy: 'LEAVE_AS_IS'
+                )
+                echo "After Allure: ${currentBuild.currentResult}"
             }
         }
     }
@@ -60,7 +75,7 @@ pipeline {
             echo '🎉 Tests Passed!'
         }
         unstable {
-            echo '⚠️ Build marked unstable. Check JUnit reports.'
+            echo '⚠️ Build marked unstable. Check the stage result shown above.'
         }
         failure {
             echo '❌ Tests Failed!'
