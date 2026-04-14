@@ -15,7 +15,7 @@
 
 		<!-- To Run the Whole Page and the test inside that -->
 		<packages>
-		<!--	 <package name="tests.smoke" />  -->
+		 <package name="tests.smoke" /> 
 			<package name="api.auth" />
 		</packages> 
 		

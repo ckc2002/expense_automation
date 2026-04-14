@@ -4,6 +4,12 @@ pipeline {
     tools {
         maven 'Maven3'
     }
+    
+     parameters {
+        choice(name: 'env', choices: ['qa', 'dev', 'prod'], description: 'Select Environment')
+        choice(name: 'suite', choices: ['default', 'smoke', 'regression'], description: 'Select Test Suite')
+        choice(name: 'runMode', choices: ['local', 'remote'], description: 'Run tests locally or on Selenium Grid')
+    }
 
     stages {
 
@@ -20,9 +26,9 @@ pipeline {
             }
         }
 
-        stage('Run API Tests') {
+        stage('Run UI & API Tests') {
             steps {
-                bat 'mvn test -DsuiteXmlFile=test-suites/default.xml'
+                bat "mvn test -Denv=%env% -DrunMode=%runMode% -DsuiteXmlFile=test-suites/%suite%.xml"
             }
         }
 
