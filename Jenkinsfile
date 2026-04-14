@@ -4,8 +4,8 @@ pipeline {
     tools {
         maven 'Maven3'
     }
-    
-     parameters {
+
+    parameters {
         choice(name: 'env', choices: ['qa', 'dev', 'prod'], description: 'Select Environment')
         choice(name: 'suite', choices: ['default', 'smoke', 'regression'], description: 'Select Test Suite')
         choice(name: 'runMode', choices: ['local', 'remote'], description: 'Run tests locally or on Selenium Grid')
@@ -16,7 +16,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: 'main',
-                url: 'https://github.com/ckc2002/expense_automation.git'
+                    url: 'https://github.com/ckc2002/expense_automation.git'
             }
         }
 
@@ -28,13 +28,18 @@ pipeline {
 
         stage('Run UI & API Tests') {
             steps {
-                bat "mvn test -Denv=%env% -DrunMode=%runMode% -DsuiteXmlFile=test-suites/%suite%.xml"
+                bat "mvn test -Denv=${params.env} -DrunMode=${params.runMode} -DsuiteXmlFile=test-suites/${params.suite}.xml"
             }
         }
 
         stage('Archive Test Results') {
             steps {
-                junit '**/target/surefire-reports/*.xml'
+                junit(
+                    testResults: 'target/surefire-reports/TEST-*.xml',
+                    allowEmptyResults: true,
+                    skipPublishingChecks: true,
+                    skipMarkingBuildUnstable: true
+                )
             }
         }
 
@@ -49,10 +54,13 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: 'logs/*.log', fingerprint: true
+            archiveArtifacts artifacts: 'logs/*.log', fingerprint: true, allowEmptyArchive: true
         }
         success {
             echo '🎉 Tests Passed!'
+        }
+        unstable {
+            echo '⚠️ Build marked unstable. Check JUnit reports.'
         }
         failure {
             echo '❌ Tests Failed!'

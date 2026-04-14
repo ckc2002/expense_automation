@@ -20,7 +20,7 @@ public class BrowserFactory {
 
 	public static WebDriver createDriver(String browserName) {
         String runMode = ConfigManager.getProperty("runMode", "local");
-     // Smart default
+        // Smart default
         boolean headless = ConfigManager.getBooleanProperty(
                 "headless",
                 "remote".equalsIgnoreCase(runMode) // default true for remote
