@@ -1,0 +1,12 @@
+tests\smoke\LoginTest.class
+tests\regression\AddExpenseTest.class
+dataproviders\UserDataProvider.class
+base\BaseAPITest.class
+listeners\AllureListener.class
+api\auth\AuthApiTest.class
+base\BaseTest.class
+listeners\NoRetry.class
+listeners\RetryTransformer.class
+listeners\RetryAnalyzer.class
+api\users\UserAPITest.class
+utils\AllureUtils.class

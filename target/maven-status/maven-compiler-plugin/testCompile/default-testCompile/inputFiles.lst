@@ -1,0 +1,12 @@
+D:\Selenium\MYworkspace\Demowork\src\test\java\api\auth\AuthApiTest.java
+D:\Selenium\MYworkspace\Demowork\src\test\java\api\users\UserAPITest.java
+D:\Selenium\MYworkspace\Demowork\src\test\java\base\BaseAPITest.java
+D:\Selenium\MYworkspace\Demowork\src\test\java\base\BaseTest.java
+D:\Selenium\MYworkspace\Demowork\src\test\java\dataproviders\UserDataProvider.java
+D:\Selenium\MYworkspace\Demowork\src\test\java\listeners\AllureListener.java
+D:\Selenium\MYworkspace\Demowork\src\test\java\listeners\NoRetry.java
+D:\Selenium\MYworkspace\Demowork\src\test\java\listeners\RetryAnalyzer.java
+D:\Selenium\MYworkspace\Demowork\src\test\java\listeners\RetryTransformer.java
+D:\Selenium\MYworkspace\Demowork\src\test\java\tests\regression\AddExpenseTest.java
+D:\Selenium\MYworkspace\Demowork\src\test\java\tests\smoke\LoginTest.java
+D:\Selenium\MYworkspace\Demowork\src\test\java\utils\AllureUtils.java
