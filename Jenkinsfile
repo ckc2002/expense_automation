@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+	triggers {
+        pollSCM('H/2 * * * *')
+    }
+
     tools {
         maven 'Maven3'
     }
@@ -15,9 +19,9 @@ pipeline {
 
     stages {
 
-        stage('Checkout Application Repo (trigger repo)') {
+        stage('Check Dev Repo Changes)') {
 		    steps {
-		        git branch: 'dev',
+		        git branch: 'main',
 		            url: 'https://github.com/ckc2002/expense-tracker.git'
 		    }
 		}
