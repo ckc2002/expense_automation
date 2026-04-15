@@ -16,17 +16,43 @@ pipeline {
     }
     
     
-
     stages {
 
-        stage('Check Dev Repo Changes)') {
+		  stage('Check if Dev Repo Changed') {
 		    steps {
-		        git branch: 'main',
-		            url: 'https://github.com/ckc2002/expense-tracker.git'
+		        script {
+		            dir('devrepo') {
+		                checkout([
+		                    $class: 'GitSCM',
+		                    branches: [[name: '*/main']],
+		                    userRemoteConfigs: [[url: 'https://github.com/ckc2002/expense-tracker.git']]
+		                ])
+		
+		                def lastCommit = bat(
+		                    script: 'git rev-parse HEAD',
+		                    returnStdout: true
+		                ).trim()
+		
+		                def previousCommitFile = "${env.WORKSPACE}\\last_commit.txt"
+		
+		                if (fileExists(previousCommitFile)) {
+		                    def oldCommit = readFile(previousCommitFile).trim()
+		
+		                    if (oldCommit == lastCommit) {
+		                        echo "No changes in DEV repo. Skipping pipeline."
+		                        currentBuild.result = 'NOT_BUILT'
+		                        error("Stopping pipeline because no new commit found.")
+		                    }
+		                }
+		
+		                writeFile file: previousCommitFile, text: lastCommit
+		            }
+		        }
 		    }
 		}
-
-		stage('Checkout Automation Repo') {
+    
+    
+        stage('Checkout Automation Repo') {
 			    steps {
 			        dir('automation') {
 			            git branch: 'main',
