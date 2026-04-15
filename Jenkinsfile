@@ -10,15 +10,26 @@ pipeline {
         choice(name: 'suite', choices: ['default', 'smoke', 'regression'], description: 'Select Test Suite')
         choice(name: 'runMode', choices: ['local', 'remote'], description: 'Run tests locally or on Selenium Grid')
     }
+    
+    
 
     stages {
 
-        stage('Checkout Code') {
-            steps {
-                git branch: 'main',
-                    url: 'https://github.com/ckc2002/expense_automation.git'
-            }
-        }
+        stage('Checkout Application Repo (trigger repo)') {
+		    steps {
+		        git branch: 'dev',
+		            url: 'https://github.com/ckc2002/expense-tracker.git'
+		    }
+		}
+
+		stage('Checkout Automation Repo') {
+			    steps {
+			        dir('automation') {
+			            git branch: 'main',
+			                url: 'https://github.com/ckc2002/expense_automation.git'
+			        }
+			    }
+		}
 
         stage('Clean Old Reports') {
             steps {
@@ -32,20 +43,20 @@ pipeline {
 
         stage('Clean & Build') {
             steps {
-                bat 'mvn clean'
+                bat 'cd automation && mvn clean'
             }
         }
 
         stage('Run UI & API Tests') {
             steps {
-                bat "mvn test -Denv=${params.env} -DrunMode=${params.runMode} -DsuiteXmlFile=test-suites/${params.suite}.xml"
+                bat "cd automation && mvn test -Denv=${params.env} -DrunMode=${params.runMode} -DsuiteXmlFile=test-suites/${params.suite}.xml"
             }
         }
 
         stage('Archive Test Results') {
             steps {
                 junit(
-                    testResults: 'target/surefire-reports/TEST-*.xml',
+                    testResults: 'automation/target/surefire-reports/TEST-*.xml',
                     allowEmptyResults: true,
                     skipPublishingChecks: true,
                     skipMarkingBuildUnstable: true
