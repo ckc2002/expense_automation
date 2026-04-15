@@ -70,7 +70,7 @@ pipeline {
                 allure(
                     includeProperties: false,
                     jdk: '',
-                    results: [[path: 'allure-results']],
+                    results: [[path: 'automation/allure-results']],
                     resultPolicy: 'LEAVE_AS_IS'
                 )
                 echo "After Allure: ${currentBuild.currentResult}"
